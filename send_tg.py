@@ -17,13 +17,13 @@ def send_telegram(text):
     try:
         response = requests.post(url, json=payload)
         if response.status_code == 200:
-            print("Повідомлення надіслано!")
+            print("Message sent!")
         else:
-            print(f"Помилка Telegram: {response.text}")
+            print(f"Telegram error: {response.text}")
     except Exception as e:
-        print(f"Помилка мережі: {e}")
+        print(f"network error: {e}")
 
 if __name__ == "__main__":
     # if you want write on konsole: python3 send_tg.py
-    message = " ".join(sys.argv[1:]) if len(sys.argv) > 1 else "Тестове повідомлення"
+    message = " ".join(sys.argv[1:]) if len(sys.argv) > 1 else "Test message"
     send_telegram(message)
